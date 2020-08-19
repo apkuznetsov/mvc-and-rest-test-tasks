@@ -20,4 +20,15 @@ public class Solver {
 
         return numberParts;
     }
+
+    public static String toString(Stack<Integer> expandedFormNumber) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(expandedFormNumber.pop());
+        for (int i = 0; i <= expandedFormNumber.size(); i++) {
+            sb.append(" + ");
+            sb.append(expandedFormNumber.pop());
+        }
+
+        return sb.toString();
+    }
 }
