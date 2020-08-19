@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <h1>HELLO, WORLD!</h1>
+<div class="centered-group">
+</div>
 </body>
 
 </html>
