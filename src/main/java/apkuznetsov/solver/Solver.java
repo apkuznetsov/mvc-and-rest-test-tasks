@@ -4,7 +4,12 @@ import java.util.Stack;
 
 public class Solver {
 
-    public static Stack<Integer> calcExpandedForm(int number) {
+    public static String getExpandedForm(int number) {
+
+        return toString(calcExpandedForm(number));
+    }
+
+    private static Stack<Integer> calcExpandedForm(int number) {
         if (number <= 0) {
             throw new ZeroOrNegativeNumberException();
         }
@@ -21,7 +26,7 @@ public class Solver {
         return numberParts;
     }
 
-    public static String toString(Stack<Integer> expandedFormNumber) {
+    private static String toString(Stack<Integer> expandedFormNumber) {
         StringBuilder sb = new StringBuilder();
         sb.append(expandedFormNumber.pop());
         for (int i = 0; i <= expandedFormNumber.size(); i++) {
