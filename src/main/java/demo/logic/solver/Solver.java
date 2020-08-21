@@ -1,4 +1,4 @@
-package demo.solver;
+package demo.logic.solver;
 
 import java.util.Stack;
 

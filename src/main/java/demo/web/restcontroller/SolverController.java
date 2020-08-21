@@ -1,7 +1,7 @@
 package demo.web.restcontroller;
 
 import demo.web.model.Number;
-import demo.solver.Solver;
+import demo.logic.solver.Solver;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
