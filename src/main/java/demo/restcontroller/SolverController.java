@@ -1,5 +1,6 @@
 package demo.restcontroller;
 
+import demo.model.Number;
 import demo.solver.Solver;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class SolverController {
 
-    @PostMapping(value = "/get-expanded-form")
-    public ResponseEntity<String> getExpandedFormF(@RequestBody Integer number) {
+    @PostMapping(value = "/get-expanded-form", consumes = "application/json")
+    public ResponseEntity<String> getExpandedFormF(@RequestBody Number number) {
 
-        return new ResponseEntity<>(Solver.getExpandedForm(number), HttpStatus.OK);
+        return new ResponseEntity<>(Solver.getExpandedForm(number.getNumber()), HttpStatus.OK);
     }
 }
