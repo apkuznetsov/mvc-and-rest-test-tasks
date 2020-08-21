@@ -13,6 +13,9 @@ public class Solver {
         if (number <= 0) {
             throw new ZeroOrNegativeNumberException();
         }
+        if (number > 100000) {
+            throw new IllegalArgumentException();
+        }
 
         Stack<Integer> numberParts = new Stack<>();
 
