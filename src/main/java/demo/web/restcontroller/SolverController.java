@@ -1,6 +1,6 @@
-package demo.restcontroller;
+package demo.web.restcontroller;
 
-import demo.model.Number;
+import demo.web.model.Number;
 import demo.solver.Solver;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
