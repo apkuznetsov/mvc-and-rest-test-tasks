@@ -39,19 +39,21 @@
     });
 
     function ajaxSubmitButtonClick() {
-        const number = $("#number").val();
+        const number = {
+            number: parseInt($("#number").val())
+        }
 
         $.ajax({
-            type: "GET",
+            type: "POST",
             contentType: "application/json",
-            url: "get-expanded-form",
+            url: "api/get-expanded-form",
             data: JSON.stringify(number),
             dataType: 'json',
-            success: function (data) {
-                $('#expanded-form').text(data);
+            success: function (expandedFormNumber) {
+                $('#expanded-form').text(expandedFormNumber.answer);
             },
-            error: function (data) {
-                alert('error');
+            error: function () {
+                alert("error");
             }
         });
     }
