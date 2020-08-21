@@ -31,15 +31,14 @@
 </div>
 
 <script>
-
     $(document).ready(function () {
         $("#submitButton").click(function (event) {
             event.preventDefault();
-            ajaxSubmitForm();
+            ajaxSubmitButtonClick();
         });
     });
 
-    function ajaxSubmitForm() {
+    function ajaxSubmitButtonClick() {
         const number = $("#number").val();
 
         $.ajax({
