@@ -3,15 +3,9 @@ body {
     font-family: sans-serif;
 }
 
-.canvas-like-div {
-    display: block;
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: black;
-    overflow: auto;
+h1 {
+    font-size: 50px;
+    text-align: center;
 }
 
 .centered-div {
@@ -22,4 +16,26 @@ body {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.list-container {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }

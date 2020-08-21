@@ -1,4 +1,4 @@
-package demo.solver;
+package demo.logic.solver;
 
 import java.util.Stack;
 
@@ -12,6 +12,9 @@ public class Solver {
     private static Stack<Integer> calcExpandedForm(int number) {
         if (number <= 0) {
             throw new ZeroOrNegativeNumberException();
+        }
+        if (number > 100000) {
+            throw new IllegalArgumentException();
         }
 
         Stack<Integer> numberParts = new Stack<>();
