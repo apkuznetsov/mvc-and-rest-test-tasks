@@ -1,4 +1,4 @@
-package apkuznetsov.config;
+package demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,14 +9,14 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("apkuznetsov")
+@ComponentScan("demo")
 public class WebAppConfig {
 
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
 
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setPrefix("/pages/");
+        resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);
 

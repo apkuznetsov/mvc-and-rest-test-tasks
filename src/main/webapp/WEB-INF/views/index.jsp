@@ -7,7 +7,7 @@
     <title>Две задачки</title>
 
     <style type="">
-        <%@include file="/resources/style.css" %>
+        <%@include file="/WEB-INF/css/style.css" %>
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -41,7 +41,7 @@
 
     function ajaxSubmitForm() {
         const number = $("#number").val();
-    
+
         $.ajax({
             type: "GET",
             contentType: "application/json",

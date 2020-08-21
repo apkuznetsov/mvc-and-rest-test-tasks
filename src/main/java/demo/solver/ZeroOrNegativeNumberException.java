@@ -1,4 +1,4 @@
-package apkuznetsov.solver;
+package demo.solver;
 
 public class ZeroOrNegativeNumberException extends RuntimeException {
     public ZeroOrNegativeNumberException() {

@@ -1,4 +1,4 @@
-package apkuznetsov.config;
+package demo.config;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;

@@ -1,4 +1,4 @@
-package apkuznetsov.solver;
+package demo.solver;
 
 import java.util.Stack;
 
@@ -29,7 +29,7 @@ public class Solver {
     private static String toString(Stack<Integer> expandedFormNumber) {
         StringBuilder sb = new StringBuilder();
         sb.append(expandedFormNumber.pop());
-        for (int i = 0; i <= expandedFormNumber.size(); i++) {
+        while (!expandedFormNumber.isEmpty()) {
             sb.append(" + ");
             sb.append(expandedFormNumber.pop());
         }

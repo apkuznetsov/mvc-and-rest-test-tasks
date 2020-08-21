@@ -1,6 +1,6 @@
-package apkuznetsov.restcontroller;
+package demo.restcontroller;
 
-import apkuznetsov.solver.Solver;
+import demo.solver.Solver;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
