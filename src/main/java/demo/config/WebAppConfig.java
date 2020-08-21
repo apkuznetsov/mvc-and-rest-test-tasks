@@ -16,7 +16,7 @@ public class WebAppConfig {
     public UrlBasedViewResolver setupViewResolver() {
 
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/WEB-INF/jsp/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);
 
