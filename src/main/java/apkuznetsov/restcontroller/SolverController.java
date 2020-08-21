@@ -1,18 +1,20 @@
 package apkuznetsov.restcontroller;
 
-import apkuznetsov.model.RequestNumber;
 import apkuznetsov.solver.Solver;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
 public class SolverController {
 
-    @RequestMapping(value = "/get-expanded-form", method = RequestMethod.POST,
-            consumes = "application/json", produces = "application/json")
-    public @ResponseBody
-    String getExpandedForm(@RequestBody RequestNumber number) {
+    @PostMapping(value = "/get-expanded-form")
+    public ResponseEntity<String> getExpandedFormF(@RequestBody Integer number) {
 
-        return Solver.getExpandedForm(number.getNumber());
+        return new ResponseEntity<>(Solver.getExpandedForm(number), HttpStatus.OK);
     }
 }
