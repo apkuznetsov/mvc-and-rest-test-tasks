@@ -1,4 +1,4 @@
-package apkuznetsov;
+package apkuznetsov.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,5 +22,4 @@ public class WebAppConfig {
 
         return resolver;
     }
-
 }
