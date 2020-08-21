@@ -16,18 +16,14 @@
 
 <h1>Расширенная форма числа</h1>
 
-<div class="canvas-like-div">
-    <div class="centered-div">
-        <label>
-            Введите натуральное число:<br>
-            <input type="text"
-                   id="number"/>
-        </label>
+<div class="centered-div">
+    <label for="number">Введите натуральное число:</label><br>
+    <input type="text" id="number"/><br>
+    <input type="button"
+           id="submitButton"
+           value="Найти его расширенную форму"/>
 
-        <input type="button" id="submitButton" value="Submit"/>
-
-        <h3 id="expanded-form"></h3>
-    </div>
+    <h3 id="expanded-form"></h3>
 </div>
 
 <script>
