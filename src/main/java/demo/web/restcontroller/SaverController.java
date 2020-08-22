@@ -24,7 +24,7 @@ public class SaverController {
     @PostMapping(value = "/save-task-input", consumes = "application/json")
     public ResponseEntity<Resource> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
 
-        final String fileName = String.format("storage//%s.txt", taskInput.getTaskName());
+        final String fileName = String.format("storage\\%s.txt", taskInput.getTaskName());
         final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
         writer.println(taskInput.getTaskName());
         writer.println(taskInput.getInput());

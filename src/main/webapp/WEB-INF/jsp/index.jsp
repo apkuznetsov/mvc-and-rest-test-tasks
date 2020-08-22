@@ -20,8 +20,7 @@
 
 <body>
 
-<h1 id="taskName"><%= TASK_2_NAME %>
-</h1>
+<h1 id="taskName"><%= TASK_2_NAME %></h1>
 
 <div class="centered-div">
     <div class="list-container">
