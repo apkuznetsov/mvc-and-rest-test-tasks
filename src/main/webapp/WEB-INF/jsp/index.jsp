@@ -6,10 +6,10 @@
 <head>
     <title>Две задачки</title>
 
-    <style type="">
-        <%@include file="/WEB-INF/css/style.css" %>
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style><%@include file="/WEB-INF/css/style.css" %></style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script><%@include file="/WEB-INF/js/calcExpandedFormClick.js" %></script>
 </head>
 
 <body>
@@ -23,42 +23,13 @@
             <div class="list-item"><input type="text" id="number"/></div>
             <div class="list-item">
                 <input type="button"
-                       id="submitButton"
+                       id="calcExpandedFormBtn"
                        value="Найти его расширенную форму"/>
             </div>
             <div class="list-item"><label id="expanded-form"></label></div>
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $("#submitButton").click(function (event) {
-            event.preventDefault();
-            ajaxSubmitButtonClick();
-        });
-    });
-
-    function ajaxSubmitButtonClick() {
-        const number = {
-            number: parseInt($("#number").val())
-        }
-
-        $.ajax({
-            type: "POST",
-            contentType: "application/json",
-            url: "api/get-expanded-form",
-            data: JSON.stringify(number),
-            dataType: 'json',
-            success: function (expandedFormNumber) {
-                $('#expanded-form').text(expandedFormNumber.answer);
-            },
-            error: function () {
-                alert("error");
-            }
-        });
-    }
-</script>
 
 </body>
 
