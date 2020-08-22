@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $("#calcExpandedFormBtn").click(function (event) {
         event.preventDefault();
-        calcExpandedFormBtnClick();
+        calcExpandedFormClick();
     });
 });
 
-function calcExpandedFormBtnClick() {
+function calcExpandedFormClick() {
     const number = {
         number: parseInt($("#number").val())
     }
