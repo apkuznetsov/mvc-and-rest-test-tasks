@@ -34,6 +34,12 @@
                        value="Найти его расширенную форму"/>
             </div>
             <div class="list-item"><label id="expanded-form"></label></div>
+
+            <div class="list-item">
+                <input type="button"
+                       id="saveInputBtn"
+                       value="Сохранить ввод"/>
+            </div>
         </div>
     </div>
 </div>
