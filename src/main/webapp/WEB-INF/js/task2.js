@@ -21,8 +21,8 @@ function calcExpandedFormClick() {
         url: "api/get-expanded-form",
         data: JSON.stringify(number),
         dataType: 'json',
-        success: function (expandedFormNumber) {
-            $('#expanded-form').text(expandedFormNumber.answer);
+        success: function (response) {
+            $('#expanded-form').text(response.answer);
         },
         error: function () {
             alert("error");
@@ -42,6 +42,9 @@ function saveInputClick() {
         url: "api/save-task-input",
         data: JSON.stringify(taskInput),
         dataType: 'json',
+        success: function (response) {
+            window.location = 'api/download-task-input?' + response.answer
+        },
         error: function () {
             alert("error");
         }
