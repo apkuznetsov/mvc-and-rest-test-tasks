@@ -1,11 +1,13 @@
 package demo.web.restcontroller;
 
+import demo.web.model.TaskInput;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,16 +21,16 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api")
 public class SaverController {
 
-    @GetMapping(value = "/save-task-input")
-    public ResponseEntity<Resource> saveTaskInput() throws IOException {
+    @PostMapping(value = "/save-task-input", consumes = "application/json")
+    public ResponseEntity<Resource> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
 
-        final String fileName = "storage" + "//file.txt";
+        final String fileName = String.format("storage//%s.txt", taskInput.getTaskName());
         final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
-        writer.println("The first line");
-        writer.println("The second line");
+        writer.println(taskInput.getTaskName());
+        writer.println(taskInput.getInput());
         writer.close();
 
-        File file = new File(fileName);
+        final File file = new File(fileName);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
         return ResponseEntity.ok()
