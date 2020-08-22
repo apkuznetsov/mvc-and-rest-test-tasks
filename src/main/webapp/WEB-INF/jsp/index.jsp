@@ -8,14 +8,10 @@
 <head>
     <title>Две задачки</title>
 
-    <style>
-        <%@include file="/WEB-INF/css/style.css" %>
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
-    <script>
-        <%@include file="/WEB-INF/js/calcExpandedFormClick.js" %>
-    </script>
+    <script src="js/calcExpandedFormClick.js"></script>
 </head>
 
 <body>
