@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
-    <script src="js/calcExpandedFormClick.js"></script>
+    <script src="js/task2.js" type="text/javascript"></script>
 </head>
 
 <body>

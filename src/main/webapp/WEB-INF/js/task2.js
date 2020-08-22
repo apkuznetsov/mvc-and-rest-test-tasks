@@ -3,6 +3,11 @@ $(document).ready(function () {
         event.preventDefault();
         calcExpandedFormClick();
     });
+
+    $("#saveInputBtn").click(function (event) {
+        event.preventDefault();
+        saveInputClick();
+    });
 });
 
 function calcExpandedFormClick() {
@@ -18,6 +23,27 @@ function calcExpandedFormClick() {
         dataType: 'json',
         success: function (expandedFormNumber) {
             $('#expanded-form').text(expandedFormNumber.answer);
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+function saveInputClick() {
+    const taskInput = {
+        taskName: $("#taskName").text(),
+        input: parseInt($("#number").val())
+    }
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "api/save-task-input",
+        data: JSON.stringify(taskInput),
+        dataType: 'json',
+        success: function (ndata) {
+            alert(ndata);
         },
         error: function () {
             alert("error");
