@@ -42,9 +42,6 @@ function saveInputClick() {
         url: "api/save-task-input",
         data: JSON.stringify(taskInput),
         dataType: 'json',
-        success: function (ndata) {
-            alert(ndata);
-        },
         error: function () {
             alert("error");
         }
