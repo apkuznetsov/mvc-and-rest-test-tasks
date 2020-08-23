@@ -44,11 +44,11 @@ function saveInputClick() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "api/save-task-input",
+        url: "api/jquery-save-task-input",
         data: JSON.stringify(taskInput),
         dataType: 'json',
         success: function (response) {
-            window.location = 'api/download-task-input?' + response.answer
+            window.location = 'api/jquery-download-task-input?' + response.answer
         },
         error: function () {
             alert("error");

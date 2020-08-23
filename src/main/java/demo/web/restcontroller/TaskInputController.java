@@ -21,16 +21,16 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api")
 public class TaskInputController {
 
-    @PostMapping(value = "/save-task-input", consumes = "application/json")
-    public ResponseEntity<Answer> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
+    @PostMapping(value = "/jquery-save-task-input", consumes = "application/json")
+    public ResponseEntity<Answer> jquerySaveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
 
         return new ResponseEntity<>(
                 new Answer("taskName=" + taskInput.getTaskName() + "&input=" + taskInput.getInput()),
                 HttpStatus.OK);
     }
 
-    @GetMapping(value = "/download-task-input")
-    public ResponseEntity<Resource> createAndDownloadTaskInput(@RequestParam String taskName, @RequestParam int input) throws IOException {
+    @GetMapping(value = "/jquery-download-task-input")
+    public ResponseEntity<Resource> jqueryCreateAndDownloadTaskInput(@RequestParam String taskName, @RequestParam int input) throws IOException {
 
         final String fileName = String.format("storage\\%s.txt", taskName);
         final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
