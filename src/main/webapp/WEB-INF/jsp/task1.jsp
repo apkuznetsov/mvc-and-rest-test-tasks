@@ -19,23 +19,27 @@
 <div class="centered-div">
     <div class="list-container">
         <div class="list">
-            <div class="list-item"><label for="number">Введите натуральное число:</label></div>
+            <div class="list-item"><label for="substrings">Введите массив подстрок (в формате JSON):</label></div>
+            <div class="list-item"><label for="substrings">Например, ["arp", "live", "strong"]</label></div>
 
             <div class="list-item">
                 <input type="file" id="file" name="file"/>
                 <input type="button"
                        id="uploadInputBtn"
-                       value="Выгрузить из файла"/>
+                       value="Выгрузить ввод. данные из файла"/>
             </div>
 
-            <div class="list-item"><input type="number" id="number"/></div>
+            <div class="list-item"><input type="text" id="substrings"/></div>
+
+            <div class="list-item"><label for="strings">Введите массив строк (в формате JSON):</label></div>
+            <div class="list-item"><input type="text" id="strings"/></div>
 
             <div class="list-item">
                 <input type="button"
-                       id="calcExpandedFormBtn"
-                       value="Найти его расширенную форму"/>
+                       id="getSubstringsThatInStringsBtn"
+                       value="Найти подстроки"/>
             </div>
-            <div class="list-item"><label id="expanded-form"></label></div>
+            <div class="list-item"><label id="resultSubstrings"></label></div>
 
             <div class="list-item">
                 <input type="button"
