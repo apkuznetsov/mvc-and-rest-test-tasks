@@ -30,7 +30,7 @@ public class SubstrsAndStrsInputController {
         }
 
         final String fileName = String.format("storage\\%s.txt", substrsAndStrsInput.getTaskName());
-        final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
+        final PrintWriter writer = new PrintWriter(fileName);
         writer.println(substrsAndStrsInput.getTaskName());
         writer.println(String.join(" ", substrsAndStrsInput.getSubstrings()));
         writer.println(String.join(" ", substrsAndStrsInput.getStrings()));
@@ -66,7 +66,7 @@ public class SubstrsAndStrsInputController {
             throws IOException {
 
         final String fileName = String.format("storage\\%s.txt", taskName);
-        final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
+        final PrintWriter writer = new PrintWriter(fileName);
         writer.println(taskName);
         writer.println(substrs);
         writer.println(strs);
