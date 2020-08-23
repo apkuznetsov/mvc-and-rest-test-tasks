@@ -20,7 +20,7 @@
     <div class="list-container">
         <div class="list">
             <div class="list-item"><label for="number">Введите натуральное число:</label></div>
-            <div class="list-item"><input type="text" id="number"/></div>
+            <div class="list-item"><input type="number" id="number"/></div>
             <div class="list-item">
                 <input type="button"
                        id="calcExpandedFormBtn"
