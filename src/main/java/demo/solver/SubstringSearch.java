@@ -8,13 +8,13 @@ public class SubstringSearch {
 
     public static String[] getSubstringsThatInStrings(String[] substrings, String[] strings) {
 
-        Set<String> resultSet = SearchSubstringsInStrings(substrings, strings);
+        Set<String> resultSet = searchSubstringsInStrings(substrings, strings);
         String[] resultArr = new String[resultSet.size()];
-
+        
         return resultSet.toArray(resultArr);
     }
 
-    private static Set<String> SearchSubstringsInStrings(String[] substrings, String[] strings) {
+    private static Set<String> searchSubstringsInStrings(String[] substrings, String[] strings) {
 
         Arrays.sort(substrings);
 
