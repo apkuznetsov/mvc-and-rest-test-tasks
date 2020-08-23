@@ -1,7 +1,7 @@
 package demo.web.restcontroller;
 
 import demo.web.model.Answer;
-import demo.web.model.TaskInput;
+import demo.web.model.NumberInput;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -19,15 +19,15 @@ import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api")
-public class TaskInputController {
+public class NumberInputController {
 
-    @PostMapping(value = "/save-task-input", consumes = "application/json")
-    public ResponseEntity<Resource> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
+    @PostMapping(value = "/save-number-input", consumes = "application/json")
+    public ResponseEntity<Resource> saveNumberInput(@RequestBody NumberInput numberInput) throws IOException {
 
-        final String fileName = String.format("storage\\%s.txt", taskInput.getTaskName());
+        final String fileName = String.format("storage\\%s.txt", numberInput.getTaskName());
         final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
-        writer.println(taskInput.getTaskName());
-        writer.println(taskInput.getInput());
+        writer.println(numberInput.getTaskName());
+        writer.println(numberInput.getInput());
         writer.close();
 
         final File file = new File(fileName);
@@ -40,16 +40,16 @@ public class TaskInputController {
                 .body(resource);
     }
 
-    @PostMapping(value = "/jquery-save-task-input", consumes = "application/json")
-    public ResponseEntity<Answer> jquerySaveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
+    @PostMapping(value = "/jquery-save-number-input", consumes = "application/json")
+    public ResponseEntity<Answer> jquerySaveNumberInput(@RequestBody NumberInput numberInput) throws IOException {
 
         return new ResponseEntity<>(
-                new Answer("taskName=" + taskInput.getTaskName() + "&input=" + taskInput.getInput()),
+                new Answer("taskName=" + numberInput.getTaskName() + "&input=" + numberInput.getInput()),
                 HttpStatus.OK);
     }
 
-    @GetMapping(value = "/jquery-download-task-input")
-    public ResponseEntity<Resource> jqueryCreateAndDownloadTaskInput(@RequestParam String taskName, @RequestParam int input) throws IOException {
+    @GetMapping(value = "/jquery-download-number-input")
+    public ResponseEntity<Resource> jqueryCreateAndDownloadNumberInput(@RequestParam String taskName, @RequestParam int input) throws IOException {
 
         final String fileName = String.format("storage\\%s.txt", taskName);
         final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
@@ -67,23 +67,23 @@ public class TaskInputController {
                 .body(resource);
     }
 
-    @PostMapping("/upload-task-input")
-    public ResponseEntity<TaskInput> uploadTaskInput(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/upload-number-input")
+    public ResponseEntity<NumberInput> uploadNumberInput(@RequestParam("file") MultipartFile file) {
 
-        final TaskInput badTaskInput = new TaskInput("", 0);
+        final NumberInput badNumberInput = new NumberInput("", 0);
 
         if (file.isEmpty()) {
-            return new ResponseEntity<>(badTaskInput, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(badNumberInput, HttpStatus.NO_CONTENT);
         } else {
             try {
 
                 String[] lines = new String(file.getBytes(), StandardCharsets.UTF_8).split(System.lineSeparator());
-                return new ResponseEntity<>(new TaskInput(lines[0], Integer.parseInt(lines[1])), HttpStatus.OK);
+                return new ResponseEntity<>(new NumberInput(lines[0], Integer.parseInt(lines[1])), HttpStatus.OK);
 
             } catch (NumberFormatException exc) {
-                return new ResponseEntity<>(badTaskInput, HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(badNumberInput, HttpStatus.BAD_REQUEST);
             } catch (IOException exc) {
-                return new ResponseEntity<>(badTaskInput, HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<>(badNumberInput, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
     }

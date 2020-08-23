@@ -36,7 +36,7 @@ function calcExpandedFormClick() {
 }
 
 function saveInputClick() {
-    const taskInput = {
+    const numberInput = {
         taskName: $("#taskName").text(),
         input: parseInt($("#number").val())
     }
@@ -44,11 +44,11 @@ function saveInputClick() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "api/jquery-save-task-input",
-        data: JSON.stringify(taskInput),
+        url: "api/jquery-save-number-input",
+        data: JSON.stringify(numberInput),
         dataType: 'json',
         success: function (response) {
-            window.location = 'api/jquery-download-task-input?' + response.answer
+            window.location = 'api/jquery-download-number-input?' + response.answer
         },
         error: function () {
             alert("error");
@@ -63,7 +63,7 @@ function uploadInputClick() {
 
     $.ajax({
         type: "POST",
-        url: "api/upload-task-input",
+        url: "api/upload-number-input",
         data: formData,
         contentType: false,
         processData: false,
