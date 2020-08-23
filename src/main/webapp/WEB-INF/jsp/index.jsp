@@ -19,9 +19,11 @@
 
 <div class="centered-div">
     <p>
-        <select size="2" multiple name="options[]">
-            <option disabled>Выберите задачку</option>
+        <select size="2"
+                multiple name="options[]"
+                id="chooseOptions">
 
+            <option disabled>Выберите задачку</option>
             <option selected value="1">
                 <%= TASK_1_NAME %>
             </option>
@@ -30,7 +32,11 @@
             </option>
         </select>
     </p>
-    <p><input type="submit" value="Выбрать"></p>
+    <p>
+        <input type="submit"
+               id="chooseBtn"
+               value="Выбрать">
+    </p>
 </div>
 
 </body>
