@@ -1,11 +1,11 @@
 package demo.web.model;
 
-public class SubstrsAndStrsInput {
+public class SubstrsAndStrs {
 
     private String[] substrings;
     private String[] strings;
 
-    public SubstrsAndStrsInput() {
+    public SubstrsAndStrs() {
     }
 
     public String[] getSubstrings() {

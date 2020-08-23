@@ -1,14 +1,14 @@
 package demo.web.model;
 
-public class TaskInput {
+public class NumberInput {
 
     private String taskName;
     private int input;
 
-    public TaskInput() {
+    public NumberInput() {
     }
 
-    public TaskInput(String taskName, int input) {
+    public NumberInput(String taskName, int input) {
         this.taskName = taskName;
         this.input = input;
     }
