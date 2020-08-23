@@ -26,7 +26,7 @@ public class NumberInputController {
     public ResponseEntity<Resource> saveNumberInput(@RequestBody NumberInput numberInput) throws IOException {
 
         final String fileName = String.format("storage\\%s.txt", numberInput.getTaskName());
-        final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
+        final PrintWriter writer = new PrintWriter(fileName);
         writer.println(numberInput.getTaskName());
         writer.println(numberInput.getInput());
         writer.close();
@@ -53,7 +53,7 @@ public class NumberInputController {
     public ResponseEntity<Resource> jqueryCreateAndDownloadNumberInput(@RequestParam String taskName, @RequestParam int input) throws IOException {
 
         final String fileName = String.format("storage\\%s.txt", taskName);
-        final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
+        final PrintWriter writer = new PrintWriter(fileName);
         writer.println(taskName);
         writer.println(input);
         writer.close();
