@@ -1,6 +1,6 @@
 package demo.web.restcontroller;
 
-import demo.solver.Solver;
+import demo.solver.ExpandedNumber;
 import demo.solver.ZeroOrNegativeNumberException;
 import demo.web.model.Answer;
 import demo.web.model.Number;
@@ -20,7 +20,7 @@ public class SolverController {
 
         String answer;
         try {
-            answer = Solver.getExpandedForm(number.getNumber());
+            answer = ExpandedNumber.getExpandedForm(number.getNumber());
         } catch (NullPointerException | NumberFormatException exc) {
             answer = "ОШИБКА. Введите число";
         } catch (ZeroOrNegativeNumberException exc) {

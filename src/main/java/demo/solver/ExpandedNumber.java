@@ -2,7 +2,7 @@ package demo.solver;
 
 import java.util.Stack;
 
-public class Solver {
+public class ExpandedNumber {
 
     public static String getExpandedForm(int number) {
 
