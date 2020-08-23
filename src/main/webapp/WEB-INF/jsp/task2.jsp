@@ -20,7 +20,16 @@
     <div class="list-container">
         <div class="list">
             <div class="list-item"><label for="number">Введите натуральное число:</label></div>
+
+            <div class="list-item">
+                <input type="file" id="file" name="file"/>
+                <input type="button"
+                       id="uploadInputBtn"
+                       value="Выгрузить из файла"/>
+            </div>
+
             <div class="list-item"><input type="number" id="number"/></div>
+
             <div class="list-item">
                 <input type="button"
                        id="calcExpandedFormBtn"
