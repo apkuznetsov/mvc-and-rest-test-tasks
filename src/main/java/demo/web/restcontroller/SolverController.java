@@ -1,9 +1,11 @@
 package demo.web.restcontroller;
 
 import demo.solver.ExpandedNumber;
+import demo.solver.SubstringSearch;
 import demo.solver.ZeroOrNegativeNumberException;
 import demo.web.model.Answer;
 import demo.web.model.Number;
+import demo.web.model.SubstrsAndStrsInput;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +32,17 @@ public class SolverController {
         }
 
         return new ResponseEntity<>(new Answer(answer), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/get-substrings-that-in-strings", consumes = "application/json")
+    public ResponseEntity<String[]> getSubstringsThatInStrings(@RequestBody SubstrsAndStrsInput input) {
+
+        if (input.getSubstrings().length > 10 || input.getStrings().length > 10) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+        final String[] result = SubstringSearch.getSubstringsThatInStrings(input.getSubstrings(), input.getStrings());
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
