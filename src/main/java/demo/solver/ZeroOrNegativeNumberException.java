@@ -1,4 +1,4 @@
-package demo.logic.solver;
+package demo.solver;
 
 public class ZeroOrNegativeNumberException extends RuntimeException {
     public ZeroOrNegativeNumberException() {

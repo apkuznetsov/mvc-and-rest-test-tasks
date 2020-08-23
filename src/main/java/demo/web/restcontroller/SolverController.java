@@ -1,7 +1,7 @@
 package demo.web.restcontroller;
 
-import demo.logic.solver.Solver;
-import demo.logic.solver.ZeroOrNegativeNumberException;
+import demo.solver.Solver;
+import demo.solver.ZeroOrNegativeNumberException;
 import demo.web.model.Answer;
 import demo.web.model.Number;
 import org.springframework.http.HttpStatus;
