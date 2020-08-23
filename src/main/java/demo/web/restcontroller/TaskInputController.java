@@ -21,6 +21,25 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api")
 public class TaskInputController {
 
+    @PostMapping(value = "/save-task-input", consumes = "application/json")
+    public ResponseEntity<Resource> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
+
+        final String fileName = String.format("storage\\%s.txt", taskInput.getTaskName());
+        final PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
+        writer.println(taskInput.getTaskName());
+        writer.println(taskInput.getInput());
+        writer.close();
+
+        final File file = new File(fileName);
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                .contentLength(file.length())
+                .contentType(MediaType.TEXT_PLAIN)
+                .body(resource);
+    }
+
     @PostMapping(value = "/jquery-save-task-input", consumes = "application/json")
     public ResponseEntity<Answer> jquerySaveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
 
