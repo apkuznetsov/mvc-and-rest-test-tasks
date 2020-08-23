@@ -1,6 +1,7 @@
 package demo.web.restcontroller;
 
 import demo.web.model.Answer;
+import demo.web.model.Number;
 import demo.web.model.NumberInput;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -68,22 +69,22 @@ public class NumberInputController {
     }
 
     @PostMapping("/upload-number-input")
-    public ResponseEntity<NumberInput> uploadNumberInput(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<Number> uploadNumberInput(@RequestParam("file") MultipartFile file) {
 
-        final NumberInput badNumberInput = new NumberInput("", 0);
+        final Number badInput = new Number(-1);
 
         if (file.isEmpty()) {
-            return new ResponseEntity<>(badNumberInput, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(badInput, HttpStatus.NO_CONTENT);
         } else {
             try {
 
                 String[] lines = new String(file.getBytes(), StandardCharsets.UTF_8).split(System.lineSeparator());
-                return new ResponseEntity<>(new NumberInput(lines[0], Integer.parseInt(lines[1])), HttpStatus.OK);
+                return new ResponseEntity<>(new Number(Integer.parseInt(lines[1])), HttpStatus.OK);
 
             } catch (NumberFormatException exc) {
-                return new ResponseEntity<>(badNumberInput, HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(badInput, HttpStatus.BAD_REQUEST);
             } catch (IOException exc) {
-                return new ResponseEntity<>(badNumberInput, HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<>(badInput, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
     }
