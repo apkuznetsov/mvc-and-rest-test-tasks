@@ -8,6 +8,11 @@ $(document).ready(function () {
         event.preventDefault();
         saveInputClick();
     });
+
+    $("#uploadInputBtn").click(function (event) {
+        event.preventDefault();
+        uploadInputClick();
+    });
 });
 
 function calcExpandedFormClick() {
@@ -44,6 +49,26 @@ function saveInputClick() {
         dataType: 'json',
         success: function (response) {
             window.location = 'api/download-task-input?' + response.answer
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+function uploadInputClick() {
+    const formData = new FormData();
+    const files = $('#file')[0].files[0];
+    formData.append('file', files);
+
+    $.ajax({
+        type: "POST",
+        url: "api/upload-task-input",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            $('#number').val(response.input)
         },
         error: function () {
             alert("error");

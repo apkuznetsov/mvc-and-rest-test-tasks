@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api")
-public class SaverController {
+public class TaskInputController {
 
     @PostMapping(value = "/save-task-input", consumes = "application/json")
     public ResponseEntity<Answer> saveTaskInput(@RequestBody TaskInput taskInput) throws IOException {
@@ -45,5 +46,26 @@ public class SaverController {
                 .contentLength(file.length())
                 .contentType(MediaType.TEXT_PLAIN)
                 .body(resource);
+    }
+
+    @PostMapping("/upload-task-input")
+    public ResponseEntity<TaskInput> uploadTaskInput(@RequestParam("file") MultipartFile file) {
+
+        final TaskInput badTaskInput = new TaskInput("", 0);
+
+        if (file.isEmpty()) {
+            return new ResponseEntity<>(badTaskInput, HttpStatus.NO_CONTENT);
+        } else {
+            try {
+
+                String[] lines = new String(file.getBytes(), StandardCharsets.UTF_8).split(System.lineSeparator());
+                return new ResponseEntity<>(new TaskInput(lines[0], Integer.parseInt(lines[1])), HttpStatus.OK);
+
+            } catch (NumberFormatException exc) {
+                return new ResponseEntity<>(badTaskInput, HttpStatus.BAD_REQUEST);
+            } catch (IOException exc) {
+                return new ResponseEntity<>(badTaskInput, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
     }
 }

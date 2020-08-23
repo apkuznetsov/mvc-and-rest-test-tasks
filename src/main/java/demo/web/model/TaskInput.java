@@ -8,6 +8,11 @@ public class TaskInput {
     public TaskInput() {
     }
 
+    public TaskInput(String taskName, int input) {
+        this.taskName = taskName;
+        this.input = input;
+    }
+
     public String getTaskName() {
         return taskName;
     }
