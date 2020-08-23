@@ -9,6 +9,10 @@ $(document).ready(function () {
         saveInputClick();
     });
 
+    $("#uploadInputBtn").click(function (event) {
+        event.preventDefault();
+        uploadInputClick();
+    });
 });
 
 function getSubstringsThatInStringsClick() {
@@ -47,6 +51,28 @@ function saveInputClick() {
         dataType: 'json',
         success: function (response) {
             window.location = 'api/jquery-download-substrs-and-strs-input?' + response.answer
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+function uploadInputClick() {
+    const formData = new FormData();
+    const files = $('#file')[0].files[0];
+    formData.append('file', files);
+
+    $.ajax({
+        type: "POST",
+        url: "api/upload-substrs-and-strs-input",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            $('#resultSubstrings').text("");
+            $('#substrings').val(JSON.stringify(response.substrings))
+            $('#strings').val(JSON.stringify(response.substrings))
         },
         error: function () {
             alert("error");

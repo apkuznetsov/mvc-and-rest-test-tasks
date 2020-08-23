@@ -69,7 +69,7 @@ function uploadInputClick() {
         processData: false,
         success: function (response) {
             $('#expanded-form').text("");
-            $('#number').val(response.input)
+            $('#number').val(response.number)
         },
         error: function () {
             alert("error");

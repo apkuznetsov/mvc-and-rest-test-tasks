@@ -8,6 +8,11 @@ public class SubstrsAndStrs {
     public SubstrsAndStrs() {
     }
 
+    public SubstrsAndStrs(String[] substrings, String[] strings) {
+        this.substrings = substrings;
+        this.strings = strings;
+    }
+
     public String[] getSubstrings() {
         return substrings;
     }
