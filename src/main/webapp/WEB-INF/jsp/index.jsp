@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="static demo.app.WebApp.TASK_1_NAME" %>
+<%@ page import="static demo.app.WebApp.TASK_2_NAME" %>
 
 <html>
 
@@ -16,11 +18,19 @@
 <h1 id="taskName">Две задачки</h1>
 
 <div class="centered-div">
-    <div class="list-container">
-        <div class="list">
-            <div class="list-item"></div>
-        </div>
-    </div>
+    <p>
+        <select size="2" multiple name="options[]">
+            <option disabled>Выберите задачку</option>
+
+            <option selected value="1">
+                <%= TASK_1_NAME %>
+            </option>
+            <option value="2">
+                <%= TASK_2_NAME %>
+            </option>
+        </select>
+    </p>
+    <p><input type="submit" value="Выбрать"></p>
 </div>
 
 </body>
