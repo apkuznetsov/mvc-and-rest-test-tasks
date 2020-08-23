@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class IndexController {
 
+    @RequestMapping(value = "/task1", method = RequestMethod.GET)
+    public String task1() {
+        return "task1";
+    }
+
     @RequestMapping(value = "/task2", method = RequestMethod.GET)
-    public String index() {
+    public String task2() {
         return "task2";
     }
 }
