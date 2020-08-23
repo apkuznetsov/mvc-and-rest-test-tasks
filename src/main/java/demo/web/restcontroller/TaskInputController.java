@@ -47,4 +47,25 @@ public class TaskInputController {
                 .contentType(MediaType.TEXT_PLAIN)
                 .body(resource);
     }
+
+    @PostMapping("/upload-task-input")
+    public ResponseEntity<TaskInput> uploadTaskInput(@RequestParam("file") MultipartFile file) {
+
+        final TaskInput badTaskInput = new TaskInput("", 0);
+
+        if (file.isEmpty()) {
+            return new ResponseEntity<>(badTaskInput, HttpStatus.NO_CONTENT);
+        } else {
+            try {
+
+                String[] lines = new String(file.getBytes(), StandardCharsets.UTF_8).split(System.lineSeparator());
+                return new ResponseEntity<>(new TaskInput(lines[0], Integer.parseInt(lines[1])), HttpStatus.OK);
+
+            } catch (NumberFormatException exc) {
+                return new ResponseEntity<>(badTaskInput, HttpStatus.BAD_REQUEST);
+            } catch (IOException exc) {
+                return new ResponseEntity<>(badTaskInput, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }
