@@ -1,3 +1,9 @@
+# Задача 1
+![](README/task2.gif)
+
+# Задача 2
+![](README/task1.gif)
+
 ```
 Given two arrays of strings a1 and a2 
 return a sorted array r in lexicographical order of the strings of a1 
